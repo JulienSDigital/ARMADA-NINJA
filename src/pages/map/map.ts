@@ -10,11 +10,11 @@ import { GoogleMaps, GoogleMap, GoogleMapsEvent, LatLng, CameraPosition, MarkerO
 })
 export class MapPage {
   constructor(public navCtrl: NavController, private googleMaps: GoogleMaps, public platform: Platform) {
-    platform.ready().then(() => {
-      this.loadMap();
-    });
-  }
 
+  }
+  ionViewDidLoad() {
+    this.loadMap();
+  }
   loadMap() {
     // create a new map by passing HTMLElement
     let element: HTMLElement = document.getElementById('map');

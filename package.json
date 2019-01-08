@@ -27,6 +27,7 @@
     "@ionic-native/sqlite": "^4.19.0",
     "@ionic-native/status-bar": "~4.18.0",
     "@ionic/storage": "2.2.0",
+    "cordova-android": "7.1.4",
     "cordova-browser": "5.0.4",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-googlemaps": "2.4.6",
@@ -49,14 +50,14 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-device": {},
       "cordova-plugin-googlemaps": {
         "API_KEY_FOR_IOS": "AIzaSyA7cISk8_O-MhXZNjxKxJdF9E6QaTLn2NI",
         "API_KEY_FOR_ANDROID": "AIzaSyBMPArk41skPfc_ewjTu6I586mT8lV6Xy4",
         "API_KEY_FOR_BROWSER": "AIzaSyBMPArk41skPfc_ewjTu6I586mT8lV6Xy4"
       },
-      "cordova-plugin-whitelist": {},
       "cordova-plugin-statusbar": {},
-      "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic-keyboard": {}
