@@ -1,0 +1,22 @@
+inscription-page {
+
+    button.Facebook-button {
+    background-color: blue;
+
+  } 
+    button.Google-button {
+    background-color: blue;
+    align-self: center;
+    
+  } 
+     button.Mail-button {
+    background-color: blue;
+    align-self: center;
+  } 
+    ion-row.Inscription-buttons {
+    align-self: center;
+    margin-top: 50vh; 
+    transform: translateY(-50%);
+  }
+
+}
