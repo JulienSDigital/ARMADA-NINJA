@@ -7,12 +7,24 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>connexionMail</ion-title>
+    <ion-title>Connexion</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Adresse Mail</ion-label>
+      <ion-input placeholder="armada@ninja.fr" [(ngModel)]="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Mot de passe</ion-label>
+      <ion-input placeholder="0123456789" type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button full (click)="login()">Valider</button>
 
 </ion-content>
