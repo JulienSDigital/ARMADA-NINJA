@@ -16,6 +16,10 @@ import { SplashScreen } from "@ionic-native/splash-screen";
 
 import { Camera } from "@ionic-native/camera";
 // import { Geolocation } from "@ionic-native/geolocation";
+import { listSportPage } from "../pages/listSport/listSport";
+import { surfPage } from "../pages/surf/surf";
+import { skiPage } from "../pages/Ski/ski";
+import { randoPage } from "../pages/rando/rando";
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { Camera } from "@ionic-native/camera";
     HomePage,
     EventPicker,
     PhotoHandler,
-    TabsPage
+    TabsPage,
+    listSportPage,
+    surfPage,
+    skiPage,
+    randoPage
   ],
   imports: [BrowserModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
@@ -36,7 +44,11 @@ import { Camera } from "@ionic-native/camera";
     HomePage,
     EventPicker,
     PhotoHandler,
-    TabsPage
+    TabsPage,
+    listSportPage,
+    surfPage,
+    skiPage,
+    randoPage
   ],
   providers: [
     StatusBar,
