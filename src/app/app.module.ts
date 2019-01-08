@@ -10,6 +10,7 @@ import { CustomHeader } from '../pages/custom-header/custom-header';
 import { Inscription } from '../pages/inscription/inscription';
 import { InscriptionMailPage } from '../pages/inscription-mail/inscription-mail';
 import { ConnexionPage } from '../pages/connexion/connexion';
+import { ConnexionMailPage } from '../pages/connexion-mail/connexion-mail';
 
 import { EventPicker } from "../pages/eventPicker/eventPicker";
 import { PhotoHandler } from "../pages/photoHandler/photoHandler";
@@ -45,6 +46,7 @@ import { IonicStorageModule } from "@ionic/storage";
     InscriptionMailPage,
     MapPage,
     ConnexionPage,
+    ConnexionMailPage,
     KitchenSinkPage
   ],
   imports: [
@@ -69,6 +71,7 @@ import { IonicStorageModule } from "@ionic/storage";
     InscriptionMailPage,
     MapPage,
     ConnexionPage,
+    ConnexionMailPage,
     KitchenSinkPage
   ],
   providers: [
