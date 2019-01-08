@@ -14,7 +14,7 @@
   </ion-item>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="body" padding>
 
   <h2 align="center">Accueil</h2>
 
@@ -28,7 +28,7 @@
         <button ion-button round (click)="goToConnexionPage()" class="connexion-button">Connexion</button>
       </ion-col>
       <ion-col col-6>
-        <button ion-button round class="inscription-button">Inscription</button>
+        <button ion-button round (click)="go2inscription()" class="inscription-button">Inscription</button>
       </ion-col>
     </ion-row>
   </ion-grid>
