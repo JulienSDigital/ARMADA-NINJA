@@ -1,24 +1,25 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Maps</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> <ion-icon name="compass">   Locations</ion-icon></ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-searchbar>
+<ion-content>
+  <ion-card *ngFor = "let x of places" (click)="itemTapped($event, x)">
+    <ion-card-header>
+      {{x.display_name}}
+    </ion-card-header>
+    <ion-card-content>
+      <pre>{{x.address | json}}</pre>
+    </ion-card-content>
 
-  </ion-searchbar>
-<p>test</p>
-  <ion-item>
-    <ion-label>Filtres</ion-label>
-    <ion-select [(ngModel)]="gender">
-      <ion-option value="traffic">Traffic</ion-option>
-      <ion-option value="friends">Amis</ion-option>
-      <ion-option value="relief">relief</ion-option>
-      <ion-option value="courant">courant</ion-option>
-    </ion-select>
-  </ion-item>
-
-    <div id="map" style="height:100%"></div>
+  </ion-card>
+  <ion-card *ngIf="places.length == 0">
+    <ion-card-header>
+      NO Location Added  </ion-card-header>
+  </ion-card>
 
 </ion-content>
