@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Inscription } from '../inscription/inscription';
-
+import { ConnexionPage } from '../connexion/connexion';
 
 @Component({
   selector: 'page-home',
@@ -11,13 +11,15 @@ import { Inscription } from '../inscription/inscription';
 export class HomePage {
 
 
-  //inscription=Inscription;
   constructor(public navCtrl: NavController) {
 
   }
 
   go2inscription(){
   	this.navCtrl.push(Inscription)
+  }
+  goToConnexionPage(){
+    this.navCtrl.push(ConnexionPage)
   }
 
 }
