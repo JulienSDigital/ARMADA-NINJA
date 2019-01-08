@@ -3,10 +3,11 @@ import { BrowserModule } from "@angular/platform-browser";
 import { IonicApp, IonicModule, IonicErrorHandler } from "ionic-angular";
 import { MyApp } from "./app.component";
 
-import { AboutPage } from "../pages/about/about";
-import { ContactPage } from "../pages/contact/contact";
-import { HomePage } from "../pages/home/home";
-import { TabsPage } from "../pages/tabs/tabs";
+import { AboutPage } from '../pages/about/about';
+import { ContactPage } from '../pages/contact/contact';
+import { HomePage } from '../pages/home/home';
+import { TabsPage } from '../pages/tabs/tabs';
+import { ConnexionPage } from '../pages/connexion/connexion';
 
 import { EventPicker } from "../pages/eventPicker/eventPicker";
 import { PhotoHandler } from "../pages/photoHandler/photoHandler";
@@ -33,7 +34,8 @@ import { randoPage } from "../pages/rando/rando";
     listSportPage,
     surfPage,
     skiPage,
-    randoPage
+    randoPage,
+    ConnexionPage
   ],
   imports: [BrowserModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
@@ -48,7 +50,8 @@ import { randoPage } from "../pages/rando/rando";
     listSportPage,
     surfPage,
     skiPage,
-    randoPage
+    randoPage,
+    ConnexionPage
   ],
   providers: [
     StatusBar,
