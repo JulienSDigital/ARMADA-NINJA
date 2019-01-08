@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Maps</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-searchbar>
+
+  </ion-searchbar>
+
+  <ion-item>
+    <ion-label>Filtres</ion-label>
+    <ion-select [(ngModel)]="gender">
+      <ion-option value="traffic">Traffic</ion-option>
+      <ion-option value="friends">Amis</ion-option>
+      <ion-option value="relief">relief</ion-option>
+      <ion-option value="courant">courant</ion-option>
+    </ion-select>
+  </ion-item>
+
+    <div id="map" style="height:100%"></div>
+
+</ion-content>
