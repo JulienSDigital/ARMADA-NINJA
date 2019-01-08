@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { Inscription } from '../pages/inscription/inscription';
 import { ConnexionPage } from '../pages/connexion/connexion';
+import { ConnexionMailPage } from '../pages/connexion-mail/connexion-mail';
 
 import { EventPicker } from "../pages/eventPicker/eventPicker";
 import { PhotoHandler } from "../pages/photoHandler/photoHandler";
@@ -37,7 +38,8 @@ import { randoPage } from "../pages/rando/rando";
     skiPage,
     randoPage,
     Inscription,
-    ConnexionPage
+    ConnexionPage,
+    ConnexionMailPage
   ],
   imports: [BrowserModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
@@ -54,7 +56,8 @@ import { randoPage } from "../pages/rando/rando";
     skiPage,
     randoPage,
     Inscription,
-    ConnexionPage
+    ConnexionPage,
+    ConnexionMailPage
   ],
   providers: [
     StatusBar,
