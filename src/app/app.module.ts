@@ -7,12 +7,9 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-<<<<<<< HEAD
 import { CustomHeader } from '../pages/custom-header/custom-header';
-=======
 import { Inscription } from '../pages/inscription/inscription';
 import { ConnexionPage } from '../pages/connexion/connexion';
->>>>>>> 8ea14e928473a624c9babffdb969e261b26133f9
 
 import { EventPicker } from "../pages/eventPicker/eventPicker";
 import { PhotoHandler } from "../pages/photoHandler/photoHandler";
@@ -32,17 +29,10 @@ import { GoogleMaps } from '@ionic-native/google-maps';
 @NgModule({
   declarations: [
     MyApp,
+    CustomHeader,
     AboutPage,
     ContactPage,
     HomePage,
-<<<<<<< HEAD
-    TabsPage,
-    CustomHeader
-  ],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp)
-=======
     EventPicker,
     PhotoHandler,
     TabsPage,
@@ -53,19 +43,15 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     Inscription,
     MapPage,
     ConnexionPage
->>>>>>> 8ea14e928473a624c9babffdb969e261b26133f9
   ],
   imports: [BrowserModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    CustomHeader,
     AboutPage,
     ContactPage,
     HomePage,
-<<<<<<< HEAD
-    TabsPage,
-    CustomHeader
-=======
     EventPicker,
     PhotoHandler,
     TabsPage,
@@ -76,7 +62,6 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     Inscription,
     MapPage,
     ConnexionPage
->>>>>>> 8ea14e928473a624c9babffdb969e261b26133f9
   ],
   providers: [
     StatusBar,

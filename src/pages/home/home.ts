@@ -10,12 +10,8 @@ import { ConnexionPage } from '../connexion/connexion';
 
 export class HomePage {
 
-<<<<<<< HEAD
-	constructor(public navCtrl: NavController) {
-=======
 
   constructor(public navCtrl: NavController) {
->>>>>>> 8ea14e928473a624c9babffdb969e261b26133f9
 
 	}
 
