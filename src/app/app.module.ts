@@ -17,7 +17,7 @@ import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 
 import { Camera } from "@ionic-native/camera";
-// import { Geolocation } from "@ionic-native/geolocation";
+ import { Geolocation } from "@ionic-native/geolocation";
 import { listSportPage } from "../pages/listSport/listSport";
 import { surfPage } from "../pages/surf/surf";
 import { skiPage } from "../pages/Ski/ski";
@@ -60,7 +60,7 @@ import { randoPage } from "../pages/rando/rando";
     StatusBar,
     SplashScreen,
     Camera,
-    // Geolocation,
+    Geolocation,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

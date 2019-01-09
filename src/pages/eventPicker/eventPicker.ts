@@ -48,19 +48,9 @@ export class EventPicker {
         // let base64Image = "data:image/jpeg;base64," + imageData;
         this.event.type = "interestPoint";
         this.event.img = imageData;
-        this.geolocation
-          .getCurrentPosition()
-          .then((resp) => {
-            this.event.latitude = resp.coords.latitude
-            this.event.longitude = resp.coords.longitude
-            this.event.altitude = resp.coords.altitude
-            this.event.time = new Date()
 
             this.navCtrl.push(PhotoHandler, {data: this.event});
-          })
-          .catch((error) => {
-            console.log("Error getting location", error);
-          });
+
       },
       (err) => {
         console.log("error happened from camera");
