@@ -4,7 +4,6 @@ import { NavController } from "ionic-angular";
 import { PhotoHandler } from "../photoHandler/photoHandler";
 
 import { Camera, CameraOptions } from "@ionic-native/camera";
-import { Geolocation } from "@ionic-native/geolocation";
 
 @Component({
   selector: "page-home",
@@ -29,7 +28,6 @@ export class EventPicker {
 
   constructor(
     public navCtrl: NavController,
-    private geolocation: Geolocation,
     private camera: Camera
   ) {}
 
