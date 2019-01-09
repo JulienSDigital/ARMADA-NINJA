@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { InscriptionMailPage } from '../inscription-mail/inscription-mail';
-
 
 @Component({
-  selector: 'inscription-page',
-  templateUrl: 'inscription.html'
+  selector: 'page-inscription-mail',
+  templateUrl: 'inscription-mail.html',
 })
-export class Inscription {
+export class InscriptionMailPage {
+
+  username:string;
+  password:string;
+  passwordConfirmation:string;
 
   header_data: any; // Déclaration options du custom-header
 
@@ -21,8 +23,10 @@ export class Inscription {
     };
   }
 
-  goToInscriptionMailPage(){
-    this.navCtrl.push(InscriptionMailPage)
+  inscription() {
+    console.log("username : " + this.username);
+    console.log("password : " + this.password);
+    console.log("password confirmation : " + this.passwordConfirmation);
   }
 
 }
