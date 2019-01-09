@@ -46,7 +46,7 @@ import { KitchenSinkPage } from "../pages/kitchen-sink/kitchen-sink";
     InscriptionMailPage,
     MapPage,
     ConnexionPage,
-    KitchenSinkPage
+    KitchenSinkPage,
   ],
   imports: [BrowserModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
@@ -67,7 +67,7 @@ import { KitchenSinkPage } from "../pages/kitchen-sink/kitchen-sink";
     InscriptionMailPage,
     MapPage,
     ConnexionPage,
-    KitchenSinkPage
+    KitchenSinkPage,
   ],
   providers: [
     StatusBar,

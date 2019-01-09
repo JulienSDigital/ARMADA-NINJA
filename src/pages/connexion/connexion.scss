@@ -10,8 +10,34 @@ page-connexion {
   .mail-button {
     background-color: darkgray;
   }
+  //
+  //.background-transition {
+  //  transition: opacity 2.5s cubic-bezier(0.55, 0, 0.1, 1);
+  //  background-image: url('assets/img/avion.jpg') !important;
+  //  background-repeat: no-repeat;
+  //}
+  //
+  //.background-transition-first {
+  //  background-image: url('assets/img/bateau.jpg') !important;
+  //  background-repeat: no-repeat;
+  //}
+  //
+  //.background-transition-second {
+  //  background-image: url('assets/img/rando.jpg') !important;
+  //  background-repeat: no-repeat;
+  //}
+  //
+  //.background-transition-third {
+  //  background-image: url('assets/img/ski.jpg') !important;
+  //  background-repeat: no-repeat;
+  //}
 
   ion-row {
     margin-top: 2rem;
+  }
+  .background-transition {
+    background-image: url('../assets/imgs/sky.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }

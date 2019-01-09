@@ -13,10 +13,10 @@ import { KitchenSinkPage } from "../kitchen-sink/kitchen-sink";
 })
 export class TabsPage {
 
-  tab1Root = EventPicker;
+  tab1Root = HomePage;
   tab2Root = AboutPage;
   tab3Root = ContactPage;
-  tab4Root = HomePage;
+  tab4Root = EventPicker;
   tab5Root = listSportPage;
   tab6Root = MapPage;
   tab7Root = KitchenSinkPage;
