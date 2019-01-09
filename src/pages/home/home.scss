@@ -1,3 +1,19 @@
 page-home {
-
+  button.connexion-button {
+    background-color: green;
+  }
+  button.inscription-button {
+    background-color: green;
+  }
+  ion-row.home-page-buttons {
+    align-self: center;
+    position: fixed;
+    bottom: 0;
+  }
+  ion-row.home-page-logo {
+    align-self: center;
+  }
+  .body {
+  background-color: lightblue;
+  }
 }

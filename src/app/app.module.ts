@@ -7,39 +7,61 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-import { MapPage } from '../pages/map/map';
+import { Inscription } from '../pages/inscription/inscription';
+import { ConnexionPage } from '../pages/connexion/connexion';
 
-// native ionic plugins
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { GoogleMaps } from '@ionic-native/google-maps';
+import { EventPicker } from "../pages/eventPicker/eventPicker";
+import { PhotoHandler } from "../pages/photoHandler/photoHandler";
+
+import { StatusBar } from "@ionic-native/status-bar";
+import { SplashScreen } from "@ionic-native/splash-screen";
+
+import { Camera } from "@ionic-native/camera";
+// import { Geolocation } from "@ionic-native/geolocation";
+import { listSportPage } from "../pages/listSport/listSport";
+import { surfPage } from "../pages/surf/surf";
+import { skiPage } from "../pages/Ski/ski";
+import { randoPage } from "../pages/rando/rando";
+
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
     ContactPage,
     HomePage,
+    EventPicker,
+    PhotoHandler,
     TabsPage,
-    MapPage,
+    listSportPage,
+    surfPage,
+    skiPage,
+    randoPage,
+    Inscription,
+    ConnexionPage
   ],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp)
-  ],
+  imports: [BrowserModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     AboutPage,
     ContactPage,
     HomePage,
+    EventPicker,
+    PhotoHandler,
     TabsPage,
-    MapPage,
+    listSportPage,
+    surfPage,
+    skiPage,
+    randoPage,
+    Inscription,
+    ConnexionPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    GoogleMaps,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Camera,
+    // Geolocation,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
 export class AppModule {}
