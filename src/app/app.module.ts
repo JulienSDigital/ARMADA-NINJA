@@ -25,6 +25,7 @@ import { surfPage } from "../pages/surf/surf";
 import { skiPage } from "../pages/Ski/ski";
 import { randoPage } from "../pages/rando/rando";
 import { GoogleMaps } from '@ionic-native/google-maps';
+import { KitchenSinkPage } from "../pages/kitchen-sink/kitchen-sink";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     randoPage,
     Inscription,
     MapPage,
-    ConnexionPage
+    ConnexionPage,
+    KitchenSinkPage
   ],
   imports: [BrowserModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
@@ -61,7 +63,8 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     randoPage,
     Inscription,
     MapPage,
-    ConnexionPage
+    ConnexionPage,
+    KitchenSinkPage
   ],
   providers: [
     StatusBar,
