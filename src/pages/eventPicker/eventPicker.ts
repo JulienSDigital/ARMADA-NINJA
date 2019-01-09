@@ -43,6 +43,7 @@ export class EventPicker {
         //     // resp.coords.latitude
         //     // resp.coords.longitude
         this.navCtrl.push(PhotoHandler);
+
         //     // TODO : add description
         //     // TODO: send to server side
         //   })
