@@ -4,7 +4,7 @@ import { NavController } from "ionic-angular";
 import { PhotoHandler } from "../photoHandler/photoHandler";
 
 import { Camera, CameraOptions } from "@ionic-native/camera";
-// import { Geolocation } from "@ionic-native/geolocation";
+import { Geolocation } from "@ionic-native/geolocation";
 
 @Component({
   selector: "page-home",
@@ -13,14 +13,23 @@ import { Camera, CameraOptions } from "@ionic-native/camera";
 export class EventPicker {
   options: CameraOptions = {
     quality: 100,
-    destinationType: this.camera.DestinationType.FILE_URI,
+    destinationType: this.camera.DestinationType.DATA_URL,
     encodingType: this.camera.EncodingType.JPEG,
     mediaType: this.camera.MediaType.PICTURE
   };
+  event: any = {
+    type: "event",
+    img: "",
+    longitude: -1,
+    latitude: -1,
+    altitude: -1,
+    time: -1,
+    description: ""
+  }
 
   constructor(
     public navCtrl: NavController,
-    // private geolocation: Geolocation,
+    private geolocation: Geolocation,
     private camera: Camera
   ) {}
 
@@ -37,21 +46,24 @@ export class EventPicker {
         // imageData is either a base64 encoded string or a file URI
         // If it's base64 (DATA_URL):
         // let base64Image = "data:image/jpeg;base64," + imageData;
-        // this.geolocation
-        //   .getCurrentPosition()
-        //   .then((resp) => {
-        //     // resp.coords.latitude
-        //     // resp.coords.longitude
-        this.navCtrl.push(PhotoHandler);
-        //     // TODO : add description
-        //     // TODO: send to server side
-        //   })
-        //   .catch((error) => {
-        //     console.log("Error getting location", error);
-        //   });
+        this.event.type = "interestPoint";
+        this.event.img = imageData;
+        this.geolocation
+          .getCurrentPosition()
+          .then((resp) => {
+            this.event.latitude = resp.coords.latitude
+            this.event.longitude = resp.coords.longitude
+            this.event.altitude = resp.coords.altitude
+            this.event.time = new Date()
+
+            this.navCtrl.push(PhotoHandler, {data: this.event});
+          })
+          .catch((error) => {
+            console.log("Error getting location", error);
+          });
       },
       (err) => {
-        console.log("error happened");
+        console.log("error happened from camera");
       }
     );
   }
