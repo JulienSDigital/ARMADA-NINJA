@@ -25,7 +25,7 @@ export class EventPicker {
     altitude: -1,
     time: -1,
     description: ""
-  }
+  };
 
   constructor(
     public navCtrl: NavController,
@@ -48,9 +48,7 @@ export class EventPicker {
         // let base64Image = "data:image/jpeg;base64," + imageData;
         this.event.type = "interestPoint";
         this.event.img = imageData;
-
-            this.navCtrl.push(PhotoHandler, {data: this.event});
-
+        this.navCtrl.push(PhotoHandler, { data: this.event });
       },
       (err) => {
         console.log("error happened from camera");
