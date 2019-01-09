@@ -4,6 +4,7 @@ import { ContactPage } from '../contact/contact';
 import { HomePage } from '../home/home';
 import { EventPicker } from "../eventPicker/eventPicker"
 import { listSportPage } from "../listSport/listSport";
+import {MapPage} from "../map/map";
 
 
 @Component({
@@ -16,6 +17,7 @@ export class TabsPage {
   tab3Root = ContactPage;
   tab4Root = HomePage;
   tab5Root = listSportPage;
+  tab6Root = MapPage;
 
   constructor() {}
 }

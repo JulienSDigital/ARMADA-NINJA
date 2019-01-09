@@ -15,6 +15,7 @@ import { PhotoHandler } from "../pages/photoHandler/photoHandler";
 
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
+import { MapPage } from "../pages/map/map";
 
 import { Camera } from "@ionic-native/camera";
 // import { Geolocation } from "@ionic-native/geolocation";
@@ -22,6 +23,7 @@ import { listSportPage } from "../pages/listSport/listSport";
 import { surfPage } from "../pages/surf/surf";
 import { skiPage } from "../pages/Ski/ski";
 import { randoPage } from "../pages/rando/rando";
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { randoPage } from "../pages/rando/rando";
     skiPage,
     randoPage,
     Inscription,
+    MapPage,
     ConnexionPage
   ],
   imports: [BrowserModule, IonicModule.forRoot(MyApp)],
@@ -54,12 +57,14 @@ import { randoPage } from "../pages/rando/rando";
     skiPage,
     randoPage,
     Inscription,
+    MapPage,
     ConnexionPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Camera,
+    GoogleMaps,
     // Geolocation,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
