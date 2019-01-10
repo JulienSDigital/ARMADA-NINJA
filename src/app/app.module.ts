@@ -27,6 +27,7 @@ import { randoPage } from "../pages/rando/rando";
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { KitchenSinkPage } from "../pages/kitchen-sink/kitchen-sink";
 import {globalServices} from "../pages/services/globalServices";
+import {confidentialityPage} from "../pages/confidentiality/confidentiality";
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import {globalServices} from "../pages/services/globalServices";
     MapPage,
     ConnexionPage,
     KitchenSinkPage,
+    confidentialityPage,
   ],
   imports: [BrowserModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
@@ -66,6 +68,7 @@ import {globalServices} from "../pages/services/globalServices";
     MapPage,
     ConnexionPage,
     KitchenSinkPage,
+    confidentialityPage,
   ],
   providers: [
     StatusBar,
