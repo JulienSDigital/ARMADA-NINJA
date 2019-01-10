@@ -39,6 +39,14 @@
                             && slideFormPassword.controls.passwordConfirmation.touched">
             <p>Veuillez confirmer votre mot de passe</p>
           </ion-item>
+          <ion-item *ngIf="(slideFormPassword.controls.passwordConfirmation.hasError('required')
+                            || slideFormPassword.controls.passwordConfirmation.hasError('passwords doesnt match'))
+                            && slideFormPassword.controls.passwordConfirmation.touched">
+            <p>Veuillez confirmer votre mot de passe</p>
+          </ion-item>
+          <!--<ion-item *ngIf="slideFormPassword.controls.passwordConfirmation.hasError('passwords doesnt match') && slideFormPassword.controls.passwordConfirmation.isActive">-->
+            <!--<p>Les mots de passe ne correspondent pas</p>-->
+          <!--</ion-item>-->
 
         </form>
       </ion-list>
