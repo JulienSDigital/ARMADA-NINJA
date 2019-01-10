@@ -4,5 +4,13 @@
 
 <ion-content padding>
   <!-- background photo -->
-  <button ion-button full (click)="handleClick()">Go back</button>
+  <ion-input 
+    placeholder="Add your description"
+    [(ngModel)]="event.description"
+    name="description"
+  >
+  </ion-input>
+  <button ion-button full (click)="handleValidation()">
+    <ion-icon name="send"></ion-icon>
+  </button>
 </ion-content>
