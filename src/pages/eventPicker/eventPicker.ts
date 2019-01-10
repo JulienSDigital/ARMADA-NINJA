@@ -84,6 +84,19 @@ export class EventPicker {
         this.event.type = "interestPoint";
         this.event.img = imageData;
         this.navCtrl.push(PhotoHandler, { data: this.event });
+        // this.geolocation
+        //   .getCurrentPosition()
+        //   .then((resp) => {
+        //     // resp.coords.latitude
+        //     // resp.coords.longitude
+        this.navCtrl.push(PhotoHandler);
+
+        //     // TODO : add description
+        //     // TODO: send to server side
+        //   })
+        //   .catch((error) => {
+        //     console.log("Error getting location", error);
+        //   });
       },
       (err) => {
         console.log("error happened from camera");

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 import { skiPage } from "../Ski/ski";
 import { surfPage } from "../surf/surf";
 import { randoPage } from "../rando/rando";
@@ -10,18 +10,48 @@ import { randoPage } from "../rando/rando";
 })
 export class listSportPage {
 
-    constructor(public navCtrl: NavController) {
+    categorieslist = [];
+    choice: any;
+    classname: String;
+    assetsUrl: String;
 
+    constructor(public navCtrl: NavController, public loadingCtrl: LoadingController) {
+        this.categorieslist = ["Ski","Surf","Randonnée"];
+        this.assetsUrl = "../../assets/imgs/";
+    }
+
+    ionViewDidLoad() {
+        for(let i = 0;i < this.categorieslist.length; i++) {
+            if(this.categorieslist[i]== "Surf") {
+                this.classname = this.assetsUrl+ "surf.jpg";
+            }
+            else if(this.categorieslist[i] == "Ski") {
+                this.classname = this.assetsUrl+"ski.png";
+            }
+            else{
+                this.classname = this.assetsUrl+"rando.png";
+            }
+        }
     }
 
 
-    goToSki() {
-        this.navCtrl.push(skiPage);
-    }
-    goToSurf() {
-        this.navCtrl.push(surfPage);
-    }
-    goToRando() {
-        this.navCtrl.push(randoPage);
+    requestCategorie(cat){
+        let loading = this.loadingCtrl.create({
+            spinner: 'ios',
+            content: 'Chargement...'
+        });
+        loading.present();
+        if(cat == 'Surf'){
+            this.choice = surfPage;
+        }
+        else if(cat == 'Ski') {
+            this.choice = skiPage;
+        }
+        else {
+            this.choice = randoPage;
+        }
+        this.navCtrl.push(this.choice, {}, { animate:true, animation:'ios-transition', direction:'forward'});
+        loading.dismiss();
+
     }
 }

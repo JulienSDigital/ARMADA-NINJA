@@ -26,6 +26,8 @@ import { randoPage } from "../pages/rando/rando";
 import { GoogleMaps } from "@ionic-native/google-maps";
 import { KitchenSinkPage } from "../pages/kitchen-sink/kitchen-sink";
 import { IonicStorageModule } from "@ionic/storage";
+import {globalServices} from "../pages/services/globalServices";
+import {confidentialityPage} from "../pages/confidentiality/confidentiality";
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { IonicStorageModule } from "@ionic/storage";
     Inscription,
     MapPage,
     ConnexionPage,
-    KitchenSinkPage
+    KitchenSinkPage,
+    confidentialityPage,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +69,8 @@ import { IonicStorageModule } from "@ionic/storage";
     Inscription,
     MapPage,
     ConnexionPage,
-    KitchenSinkPage
+    KitchenSinkPage,
+    confidentialityPage,
   ],
   providers: [
     StatusBar,
@@ -74,6 +78,7 @@ import { IonicStorageModule } from "@ionic/storage";
     Camera,
     Geolocation,
     GoogleMaps,
+    globalServices,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
