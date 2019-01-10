@@ -1,7 +1,7 @@
-import { NgModule, ErrorHandler } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
+import { NgModule, ErrorHandler } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { IonicApp, IonicModule, IonicErrorHandler } from "ionic-angular";
+import { MyApp } from "./app.component";
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -19,13 +19,14 @@ import { SplashScreen } from "@ionic-native/splash-screen";
 import { MapPage } from "../pages/map/map";
 
 import { Camera } from "@ionic-native/camera";
-// import { Geolocation } from "@ionic-native/geolocation";
+ import { Geolocation } from "@ionic-native/geolocation";
 import { listSportPage } from "../pages/listSport/listSport";
 import { surfPage } from "../pages/surf/surf";
 import { skiPage } from "../pages/Ski/ski";
 import { randoPage } from "../pages/rando/rando";
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { KitchenSinkPage } from "../pages/kitchen-sink/kitchen-sink";
+import {globalServices} from "../pages/services/globalServices";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { KitchenSinkPage } from "../pages/kitchen-sink/kitchen-sink";
     Inscription,
     MapPage,
     ConnexionPage,
-    KitchenSinkPage
+    KitchenSinkPage,
   ],
   imports: [BrowserModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
@@ -64,14 +65,15 @@ import { KitchenSinkPage } from "../pages/kitchen-sink/kitchen-sink";
     Inscription,
     MapPage,
     ConnexionPage,
-    KitchenSinkPage
+    KitchenSinkPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Camera,
+    Geolocation,
     GoogleMaps,
-    // Geolocation,
+    globalServices,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
