@@ -45,10 +45,13 @@ import { IonicStorageModule } from "@ionic/storage";
     InscriptionMailPage,
     MapPage,
     ConnexionPage,
-    KitchenSinkPage,
-    IonicStorageModule
+    KitchenSinkPage
   ],
-  imports: [BrowserModule, IonicModule.forRoot(MyApp)],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
+  ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -66,8 +69,7 @@ import { IonicStorageModule } from "@ionic/storage";
     InscriptionMailPage,
     MapPage,
     ConnexionPage,
-    KitchenSinkPage,
-    IonicStorageModule
+    KitchenSinkPage
   ],
   providers: [
     StatusBar,
