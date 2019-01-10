@@ -6,6 +6,7 @@ import { EventPicker } from "../eventPicker/eventPicker"
 import { listSportPage } from "../listSport/listSport";
 import {MapPage} from "../map/map";
 import { KitchenSinkPage } from "../kitchen-sink/kitchen-sink";
+import {Openmap} from "../OpenMap/openmap";
 
 
 @Component({
@@ -20,6 +21,7 @@ export class TabsPage {
   tab5Root = listSportPage;
   tab6Root = MapPage;
   tab7Root = KitchenSinkPage;
+  tab8Root = Openmap;
 
   constructor() {}
 }

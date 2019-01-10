@@ -17,8 +17,11 @@ import { PhotoHandler } from "../pages/photoHandler/photoHandler";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { MapPage } from "../pages/map/map";
-
+import {Openmap} from "../pages/OpenMap/openmap";
 import { Camera } from "@ionic-native/camera";
+import { ListPage } from '../pages/list/list';
+import { Geolocation } from '@ionic-native/geolocation';
+import { LocationAccuracy } from '@ionic-native/location-accuracy';
 // import { Geolocation } from "@ionic-native/geolocation";
 import { listSportPage } from "../pages/listSport/listSport";
 import { surfPage } from "../pages/surf/surf";
@@ -44,7 +47,9 @@ import { KitchenSinkPage } from "../pages/kitchen-sink/kitchen-sink";
     Inscription,
     MapPage,
     ConnexionPage,
-    KitchenSinkPage
+    Openmap,
+    ListPage,
+    KitchenSinkPage,
   ],
   imports: [BrowserModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
@@ -64,14 +69,17 @@ import { KitchenSinkPage } from "../pages/kitchen-sink/kitchen-sink";
     Inscription,
     MapPage,
     ConnexionPage,
-    KitchenSinkPage
+    Openmap,
+    ListPage,
+    KitchenSinkPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Camera,
     GoogleMaps,
-    // Geolocation,
+    Geolocation,
+    LocationAccuracy,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
