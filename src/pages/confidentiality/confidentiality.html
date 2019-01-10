@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Confidentialité
+        </ion-title>
+    </ion-navbar>
+</ion-header>
 
-</body>
-</html>
+
+<ion-list>
+    <div>Portée des publications</div>
+    <ion-item>
+        <ion-label>A mes amis</ion-label>
+        <ion-checkbox [(ngModel)]="friends"></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>A tout le monde</ion-label>
+        <ion-checkbox [(ngModel)]="all"></ion-checkbox>
+    </ion-item>
+
+
+</ion-list>
