@@ -3,12 +3,21 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>I'm an Event bro !</h2>
-  <div>
-    <button ion-button full (click)="makeInterestPoint()">
-      Point d'intéret
-    </button>
-    <button ion-button full>Signaler un problème</button>
-    <button ion-button full>Appel d'urgence</button>
-  </div>
+  <ion-grid>
+    <h2>I'm an Event bro !</h2>
+    <div>
+      <ion-row>
+        <button ion-button full (click)="makeInterestPoint()">
+          Point d'intéret
+        </button>
+      </ion-row>
+      <ion-row> <button ion-button full>Signaler un problème</button> </ion-row>
+      <ion-row> <button ion-button full>Appel d'urgence</button> </ion-row>
+      <ion-row>
+        <button ion-button full (click)="beginRecord()">
+          Lancer un record
+        </button>
+      </ion-row>
+    </div>
+  </ion-grid>
 </ion-content>
