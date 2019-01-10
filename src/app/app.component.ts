@@ -24,10 +24,11 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
       statusBar.show();
-      statusBar.backgroundColorByHexString('#ffffff');
+      statusBar.backgroundColorByHexString("#ffffff");
     });
+    storage.clear();
     storage.set("recordTimer", null);
     storage.set("currentRide", []);
-    storage.set("recording", true);
+    storage.set("recording", false);
   }
 }

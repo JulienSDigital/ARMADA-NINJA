@@ -38,39 +38,40 @@ export class EventPicker {
   ) {}
 
   beginRecord() {
-    // TODO : add to global
     this.storage.get("recording").then((rec) => {
+      console.log(rec);
       if (!rec) {
-        // add recorder
         const recordTimer = setInterval(() => {
           this.geolocation
             .getCurrentPosition()
             .then((resp) => {
-              //   const coordonnee = {
-              //     latitude: resp.coords.latitude,
-              //     longitude: resp.coords.longitude,
-              //     altitude: resp.coords.altitude,
-              //     time: new Date()
-              //   };
-              //   this.storage.get("currentRide").then((currentRide) => {
-              //     this.storage.set("currentRide", currentRide.push(coordonnee));
-              //   });
-              this.storage.set("recording", true);
-              this.recordingButtonColor = "red";
-              //   this.navCtrl.pop();
+              const coordonnee = {
+                latitude: resp.coords.latitude,
+                longitude: resp.coords.longitude,
+                altitude: resp.coords.altitude,
+                time: new Date()
+              };
+              this.storage.get("currentRide").then((currentRide) => {
+                this.storage.set("currentRide", currentRide.push(coordonnee));
+              });
             })
             .catch((error) => {
               console.log("Error getting location", error);
             });
         }, this.FREQUENCY);
+        this.storage.set("recording", true);
+        this.recordingButtonColor = "red";
         this.storage.set("recordTimer", recordTimer);
       } else {
-        // clean recorder
-        this.storage.get("recordTimer").then((recordTimer) => {
-          clearInterval(recordTimer);
+        this.storage.get("currentRide").then((currentRide) => {
+          //   this.storage.set("currentRide", currentRide.push(coordonnee));
+          console.log(currentRide);
         });
         this.storage.set("recording", false);
         this.recordingButtonColor = "green";
+        this.storage.get("recordTimer").then((recordTimer) => {
+          clearInterval(recordTimer);
+        });
       }
     });
   }
