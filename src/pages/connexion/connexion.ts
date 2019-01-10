@@ -23,5 +23,4 @@ export class ConnexionPage {
   goToConnexionMailPage(){
     this.navCtrl.push(ConnexionMailPage)
   }
-
 }
