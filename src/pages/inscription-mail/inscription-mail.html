@@ -1,0 +1,133 @@
+<ion-header>
+  <custom-header [header]="header_data"></custom-header>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-slides #signupSlider>
+    <ion-slide>
+      <ion-list>
+        <form [formGroup]="slideFormMail">
+          <ion-item>
+            <ion-label>Adresse mail</ion-label>
+            <ion-input formControlName="mail" type="mail"></ion-input>
+          </ion-item>
+        </form>
+      </ion-list>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-list>
+        <form [formGroup]="slideFormPassword">
+          <ion-item>
+            <ion-label>Mot de passe</ion-label>
+            <ion-input formControlName="password" type="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Confirmation</ion-label>
+            <ion-input formControlName="passwordConfirmation" type="text"></ion-input>
+          </ion-item>
+
+        </form>
+      </ion-list>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-list>
+        <form [formGroup]="slideFormPrenom">
+          <ion-item>
+            <ion-label>Prénom</ion-label>
+            <ion-input formControlName="prenom" type="text"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="slideFormPrenom.controls.prenom.hasError('maxlength') && slideFormPrenom.controls.prenom.touched">
+            <p>30 caractères maximum</p>
+          </ion-item>
+          <ion-item *ngIf="slideFormPrenom.controls.prenom.hasError('required') && slideFormPrenom.controls.prenom.touched">
+            <p>Prénom requis</p>
+          </ion-item>
+        </form>
+      </ion-list>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-list>
+        <form [formGroup]="slideFormNom">
+          <ion-item>
+            <ion-label>Nom</ion-label>
+            <ion-input formControlName="nom" type="text"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="slideFormNom.controls.nom.hasError('maxlength') && slideFormNom.controls.nom.touched">
+            <p>30 caractères maximum</p>
+          </ion-item>
+          <ion-item *ngIf="slideFormNom.controls.nom.hasError('required') && slideFormNom.controls.nom.touched">
+            <p>Nom requis</p>
+          </ion-item>
+        </form>
+      </ion-list>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-list>
+        <form [formGroup]="slideFormAge">
+          <ion-item>
+            <ion-label>Âge</ion-label>
+            <ion-input formControlName="age" type="number"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="slideFormAge.controls.age.hasError('too young') && slideFormAge.controls.age.touched">
+            <p>Vous devez être majeur(e)</p>
+          </ion-item>
+          <ion-item *ngIf="slideFormAge.controls.age.hasError('not realistic') && slideFormAge.controls.age.touched">
+            <p>Votre âge doit être inférieur à 120 ans</p>
+          </ion-item>
+          <ion-item *ngIf="slideFormAge.controls.age.hasError('not a number') && slideFormAge.controls.age.touched">
+            <p>La valeur entrée n'est pas un âge</p>
+          </ion-item>
+          <ion-item *ngIf="slideFormAge.controls.age.hasError('not a whole number') && slideFormAge.controls.age.touched">
+            <p>L'âge entré n'est pas un nombre entier</p>
+          </ion-item>
+        </form>
+      </ion-list>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-list>
+        <form [formGroup]="slideFormPhoneNumber">
+          <ion-item>
+            <ion-label>Téléphone</ion-label>
+            <ion-input formControlName="phoneNumber" type="text"></ion-input>
+          </ion-item>
+        </form>
+      </ion-list>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-list>
+        <form [formGroup]="slideFormSexe">
+          <ion-item>
+            <ion-label>Sexe</ion-label>
+            <ion-select formControlName="sexe">
+              <ion-option value="male" >Homme</ion-option>
+              <ion-option value="female">Femme</ion-option>
+              <ion-option value="none">Non défini</ion-option>
+            </ion-select>
+          </ion-item>
+        </form>
+      </ion-list>
+      <button ion-button full color="primary" (click)="save()">Créer mon compte</button>
+    </ion-slide>
+
+  </ion-slides>
+
+</ion-content>
+
+<ion-footer>
+  <ion-navbar transparent>
+    <ion-buttons icon-start>
+      <button ion-button icon-left (click)="prev()"><ion-icon name="arrow-back"></ion-icon> Prev</button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-right (click)="next()">Next <ion-icon name="arrow-forward"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-footer>

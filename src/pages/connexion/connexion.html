@@ -1,37 +1,22 @@
 <ion-header>
-  <ion-item>
-    <ion-avatar item-start>
-      <img src="assets/imgs/logo-home-page.png">
-    </ion-avatar>
-    <h2>Bonjour !</h2>
-
-    <form item-end>
-      <select class ="language-selection" size="1">
-        <option>Français</option>
-        <option>English</option>
-      </select>
-    </form>
-  </ion-item>
+  <custom-header [header]="header_data"></custom-header>
 </ion-header>
 
-
 <ion-content class="background-transition" padding>
-  <h2 align="center">Connexion</h2>
-
   <ion-grid>
-    <ion-row text-center>
+    <ion-row class = "connexion" text-center>
       <ion-col col-12>
         <button ion-button round full class="facebook-button"> <ion-icon name="logo-facebook"> Facebook</ion-icon>  </button>
       </ion-col>
     </ion-row>
-    <ion-row text-center>
+    <ion-row class = "connexion" text-center>
       <ion-col col-12>
         <button ion-button round full class="google-button"> <ion-icon name="logo-google"> Google</ion-icon></button>
       </ion-col>
     </ion-row>
-    <ion-row text-center>
+    <ion-row class = "connexion" text-center>
       <ion-col col-12>
-        <button ion-button round full class="mail-button">  <ion-icon name="mail"> Mail</ion-icon></button>
+        <button ion-button round full (click)="goToConnexionMailPage()" class="mail-button">Mail</button>
       </ion-col>
     </ion-row>
   </ion-grid>
