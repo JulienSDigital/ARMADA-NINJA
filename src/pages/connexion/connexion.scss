@@ -14,4 +14,9 @@ page-connexion {
   ion-row {
     margin-top: 2rem;
   }
+  .background-transition {
+    background-image: url('../assets/imgs/sky.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }

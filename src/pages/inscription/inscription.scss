@@ -14,4 +14,9 @@ inscription-page {
   ion-row {
     margin-top: 2rem;
   }
+  .background-transition {
+    background-image: url('../assets/imgs/ski.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
