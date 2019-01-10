@@ -5,6 +5,8 @@ import { PhotoHandler } from "../photoHandler/photoHandler";
 
 import { Camera, CameraOptions } from "@ionic-native/camera";
 
+import { Storage } from "@ionic/storage";
+
 @Component({
   selector: "page-home",
   templateUrl: "eventPicker.html"
@@ -25,11 +27,21 @@ export class EventPicker {
     time: -1,
     description: ""
   };
+  FREQUENCY = 1000;
 
   constructor(
     public navCtrl: NavController,
-    private camera: Camera
+    private camera: Camera,
+    public storage: Storage
   ) {}
+
+  beginRecord() {
+    // TODO : add to global
+    const recordTimer = setInterval(() => {
+      console.log("hello boy");
+      this.storage.set("recordTimer", recordTimer);
+    }, this.FREQUENCY);
+  }
 
   /**
    * take photo
