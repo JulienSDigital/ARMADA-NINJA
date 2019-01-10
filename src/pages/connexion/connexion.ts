@@ -8,7 +8,16 @@ import { ConnexionMailPage } from '../connexion-mail/connexion-mail';
 })
 export class ConnexionPage {
 
+  header_data: any; // Déclaration options du custom-header
+
   constructor(public navCtrl: NavController) {
+    // Initialisation des valeurs des options du custom-header
+    this.header_data = {
+      hideBackButton: false,
+      withProfile: false,
+      withTranslate: true,
+      title: "Connexion"
+    };
   }
 
   goToConnexionMailPage(){
