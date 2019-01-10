@@ -24,4 +24,8 @@ export class ConnexionPage {
     this.navCtrl.push(ConnexionMailPage)
   }
 
+  goToConnexionMailPage(){
+    this.navCtrl.push(ConnexionMailPage)
+  }
+
 }
