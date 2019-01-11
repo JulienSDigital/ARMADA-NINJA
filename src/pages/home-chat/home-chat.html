@@ -1,0 +1,11 @@
+<ion-header>
+  <custom-header [header]="header_data"></custom-header>
+</ion-header>
+
+<ion-content padding (keyup.enter)="joinChat()">
+  <ion-item>
+    <ion-label stacked>Entrez un pseudo</ion-label>
+    <ion-input type="text" [(ngModel)]="nickname" placeholder="Pseudo"></ion-input>
+  </ion-item>
+  <button ion-button full (click)="joinChat()" [disabled]="nickname === ''">Rejoindre en tant que {{ nickname }}</button>
+</ion-content>
