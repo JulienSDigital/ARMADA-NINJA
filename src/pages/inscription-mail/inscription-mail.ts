@@ -24,7 +24,8 @@ export class InscriptionMailPage {
   slideFormAge: FormGroup;
   slideFormPhoneNumber: FormGroup;
   slideFormSexe: FormGroup;
-  formFields: Array<FormGroup>;
+  slideForms: Array<FormGroup>;
+  formFields: Array<string>;
   submitAttempt: boolean = false;
 
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder) {
@@ -88,7 +89,7 @@ export class InscriptionMailPage {
         sexe: ['none']
     });
 
-    this.formFields = [
+    this.slideForms = [
         this.slideFormMail,
         this.slideFormPassword,
         this.slideFormPrenom,
@@ -97,6 +98,16 @@ export class InscriptionMailPage {
         this.slideFormPhoneNumber,
         this.slideFormSexe,
     ];
+
+      this.formFields = [
+        'mail',
+        'password',
+        'prenom',
+        'nom',
+        'age',
+        'phoneNumber',
+        'sexe',
+      ];
   }
 
   next(){
@@ -111,10 +122,18 @@ export class InscriptionMailPage {
     this.submitAttempt = true;
     let errorInsideForm: boolean = false;
 
-    this.formFields.forEach((value, key) => {
-        if(!value.valid){
-              this.signupSlider.slideTo(key-1);
-              errorInsideForm = true;
+    this.slideForms.forEach((form, key) => {
+
+        this.formFields.forEach((formKey, index) => {
+            var formValue = form.value.valueOf()[formKey];
+            if (formValue) {
+                window.localStorage.setItem(formKey, formValue);
+            }
+        });
+
+        if(!form.valid){
+          this.signupSlider.slideTo(key-1);
+          errorInsideForm = true;
         }
     });
 
