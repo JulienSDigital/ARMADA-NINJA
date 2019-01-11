@@ -39,7 +39,6 @@ export class MyApp {
 	pages:Array<Object> = [
 		{ libelle: 'Accueil', icon: 'home', component: HomePage },
 		{ libelle: 'Contact', icon: 'contacts', component: ContactPage },
-		{ libelle: 'About', icon: 'help', component: AboutPage },
 	];
 
 	constructor(
