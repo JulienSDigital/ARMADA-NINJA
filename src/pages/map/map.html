@@ -1,24 +1,21 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Maps</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addMarker()">
+        <ion-icon name="md-locate"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="loadMarkers()">
+        <ion-icon name="md-refresh"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-searchbar>
 
-  </ion-searchbar>
-<p>test</p>
-  <ion-item>
-    <ion-label>Filtres</ion-label>
-    <ion-select [(ngModel)]="gender">
-      <ion-option value="traffic">Traffic</ion-option>
-      <ion-option value="friends">Amis</ion-option>
-      <ion-option value="relief">relief</ion-option>
-      <ion-option value="courant">courant</ion-option>
-    </ion-select>
-  </ion-item>
-
-    <div id="map" style="height:100%"></div>
-
+<ion-content>
+  <div id="map" style="width:100%; height:100%;"></div>
 </ion-content>
+
