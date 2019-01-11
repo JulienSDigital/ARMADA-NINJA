@@ -1,8 +1,11 @@
 page-map {
-  #map {
-    height: 100%;
+  page-leaflet {
+    .map-container {
+      position: absolute !important;
+      top: 0px !important;
+      bottom: 0px !important;
+      width: 100% !important;
+      height: 100% !important;
+    }
   }
-}
-ion-app._gmaps_cdv_ .nav-decor{
-  background-color: transparent !important;
 }

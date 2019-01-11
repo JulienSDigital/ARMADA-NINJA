@@ -13,7 +13,35 @@ page-home {
   ion-row.home-page-logo {
     align-self: center;
   }
-  .body {
-  background-color: lightblue;
+  @keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+  }
+
+  @-webkit-keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+  }
+
+  h2{
+    color:white !important;
+  }
+
+  body {
+    cursor: url('https://ionicframework.com/img/finger.png'), auto;
+  }
+
+  .scroll-content{
+    //width: 560px;
+    //height: 400px;
+    background-image: url(../assets/imgs/background.png);
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+    background-size:cover;
+    -webkit-animation:animatedBackground 40s linear infinite;
+    -moz-animation:animatedBackground 40s linear infinite;
+    -ms-animation:animatedBackground 40s linear infinite;
+    -o-animation:animatedBackground 40s linear infinite;
+    animation:animatedBackground 40s linear infinite;
   }
 }

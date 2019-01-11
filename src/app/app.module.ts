@@ -2,8 +2,6 @@ import { NgModule, ErrorHandler } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { IonicApp, IonicModule, IonicErrorHandler } from "ionic-angular";
 import { MyApp } from "./app.component";
-import { Network } from '@ionic-native/network';
-import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -13,27 +11,43 @@ import { ConnexionPage } from '../pages/connexion/connexion';
 
 import { EventPicker } from "../pages/eventPicker/eventPicker";
 import { PhotoHandler } from "../pages/photoHandler/photoHandler";
-
-import { StatusBar } from "@ionic-native/status-bar";
-import { SplashScreen } from "@ionic-native/splash-screen";
+import { ConnexionMailPage } from "../pages/connexion-mail/connexion-mail";
 import { MapPage } from "../pages/map/map";
-
-import { Camera } from "@ionic-native/camera";
- import { Geolocation } from "@ionic-native/geolocation";
 import { listSportPage } from "../pages/listSport/listSport";
 import { surfPage } from "../pages/surf/surf";
 import { skiPage } from "../pages/Ski/ski";
 import { randoPage } from "../pages/rando/rando";
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { KitchenSinkPage } from "../pages/kitchen-sink/kitchen-sink";
-import {globalServices} from "../pages/services/globalServices";
-import {confidentialityPage} from "../pages/confidentiality/confidentiality";
+import { globalServices } from "../pages/services/globalServices";
+import { confidentialityPage } from "../pages/confidentiality/confidentiality";
+import { Network } from "@ionic-native/network";
+
+// Module supp ionic
+import { SplashScreen } from "@ionic-native/splash-screen";
+import { Camera } from "@ionic-native/camera";
+import { Geolocation } from "@ionic-native/geolocation";
+import { IonicStorageModule } from "@ionic/storage";
+import { StatusBar } from "@ionic-native/status-bar";
+import {AngularFireModule} from "angularfire2";
+import {AngularFirestoreModule} from "angularfire2/firestore";
+import {MarkersProvider} from "../providers/markers/markers";
+import { NativeGeocoder } from '@ionic-native/native-geocoder';
+import {LocationAccuracy} from "@ionic-native/location-accuracy";
+
+var config = {
+  apiKey: "<yourapikeyhere>",
+  authDomain: "<armada-dev-1546938684577.firebaseapp.com>",
+  databaseURL: "<map>",
+  projectId: "<projectIdhere>",
+  storageBucket: "<oLiKzi3DSYaOiPhqDlW5>",
+  messagingSenderId: "<yourmsgingsenderidhere>"
+};
 
 @NgModule({
   declarations: [
     MyApp,
     CustomHeader,
-    AboutPage,
     ContactPage,
     HomePage,
     EventPicker,
@@ -48,13 +62,20 @@ import {confidentialityPage} from "../pages/confidentiality/confidentiality";
     ConnexionPage,
     KitchenSinkPage,
     confidentialityPage,
+     globalServices,
+    ConnexionMailPage
   ],
-  imports: [BrowserModule, IonicModule.forRoot(MyApp)],
+  imports: [
+    BrowserModule,
+    AngularFireModule.initializeApp(config),
+    AngularFirestoreModule,
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
+  ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     CustomHeader,
-    AboutPage,
     ContactPage,
     HomePage,
     EventPicker,
@@ -69,14 +90,17 @@ import {confidentialityPage} from "../pages/confidentiality/confidentiality";
     ConnexionPage,
     KitchenSinkPage,
     confidentialityPage,
+    ConnexionMailPage,
+      globalServices,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Camera,
     Geolocation,
-    GoogleMaps,
-    globalServices,
+    LocationAccuracy,
+    NativeGeocoder,
+    MarkersProvider,
     Network,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]

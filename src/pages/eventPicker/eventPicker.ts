@@ -3,8 +3,9 @@ import { NavController } from "ionic-angular";
 
 import { PhotoHandler } from "../photoHandler/photoHandler";
 
-import { Camera, CameraOptions } from "@ionic-native/camera";
 import { Geolocation } from "@ionic-native/geolocation";
+import { Camera, CameraOptions } from "@ionic-native/camera";
+import { Storage } from "@ionic/storage";
 
 @Component({
   selector: "page-home",
@@ -26,20 +27,55 @@ export class EventPicker {
     time: -1,
     description: ""
   };
+  recordingButtonColor: string = "danger";
+  FREQUENCY = 1000;
 
   constructor(
     public navCtrl: NavController,
-    private geolocation: Geolocation,
-    private camera: Camera
+    public geolocation: Geolocation,
+    public camera: Camera,
+    public storage: Storage
   ) {}
 
-  /**
-   * take photo
-   * retrieve position
-   * add description
-   * enable validation
-   * push to db
-   */
+  beginRecord() {
+    this.storage.get("recording").then((rec) => {
+      console.log(rec);
+      if (!rec) {
+        const recordTimer = setInterval(() => {
+          this.geolocation
+            .getCurrentPosition()
+            .then((resp) => {
+              const coordonnee = {
+                latitude: resp.coords.latitude,
+                longitude: resp.coords.longitude,
+                altitude: resp.coords.altitude,
+                time: new Date()
+              };
+              this.storage.get("currentRide").then((currentRide) => {
+                this.storage.set("currentRide", currentRide.push(coordonnee));
+              });
+            })
+            .catch((error) => {
+              console.log("Error getting location", error);
+            });
+        }, this.FREQUENCY);
+        this.storage.set("recording", true);
+        this.recordingButtonColor = "red";
+        this.storage.set("recordTimer", recordTimer);
+      } else {
+        this.storage.get("currentRide").then((currentRide) => {
+          //   this.storage.set("currentRide", currentRide.push(coordonnee));
+          console.log(currentRide);
+        });
+        this.storage.set("recording", false);
+        this.recordingButtonColor = "green";
+        this.storage.get("recordTimer").then((recordTimer) => {
+          clearInterval(recordTimer);
+        });
+      }
+    });
+  }
+
   makeInterestPoint() {
     this.camera.getPicture(this.options).then(
       (imageData) => {
