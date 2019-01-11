@@ -11,7 +11,12 @@ page-connexion {
     background-color: darkgray;
   }
 
-  ion-row {
+  ion-row.connexion {
     margin-top: 2rem;
+  }
+  .background-transition {
+    background-image: url('../assets/imgs/sky.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }

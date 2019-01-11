@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { ConnexionMailPage } from '../connexion-mail/connexion-mail';
 
 @Component({
-  selector: 'page-connexion',
-  templateUrl: 'connexion.html',
+  selector: 'page-connexion-mail',
+  templateUrl: 'connexion-mail.html',
 })
-export class ConnexionPage {
+export class ConnexionMailPage {
 
+  username:string;
+  password:string;
   header_data: any; // Déclaration options du custom-header
 
   constructor(public navCtrl: NavController) {
@@ -15,12 +16,14 @@ export class ConnexionPage {
     this.header_data = {
       hideBackButton: false,
       withProfile: false,
-      withTranslate: true,
+      withTranslate: false,
       title: "Connexion"
     };
   }
 
-  goToConnexionMailPage(){
-    this.navCtrl.push(ConnexionMailPage)
+  login() {
+    console.log("username : " + this.username);
+    console.log("password : " + this.password);
   }
+
 }

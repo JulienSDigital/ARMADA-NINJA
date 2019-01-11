@@ -9,10 +9,9 @@ import { ConnexionPage } from '../connexion/connexion';
 })
 
 export class HomePage {
-
-
+  className: string = 'one-class';
   constructor(public navCtrl: NavController) {
-
+    this.changebackground();
 	}
 
   go2inscription(){
@@ -21,5 +20,9 @@ export class HomePage {
   goToConnexionPage(){
     this.navCtrl.push(ConnexionPage)
   }
-
+  changebackground() {
+    setTimeout( () => {
+      this.className = 'another-class';
+    }, 2000);
+  }
 }

@@ -1,24 +1,23 @@
 <ion-header>
+    <custom-header [header]="header_data"></custom-header>
 </ion-header>
 
-<ion-content padding>
-
-    <h2 align="center">Inscription</h2>
+<ion-content class="background-transition" padding>
 
     <ion-grid>
-        <ion-row text-center>
+        <ion-row class = "margin-top"text-center>
             <ion-col col-12>
                 <button ion-button round class="facebook-button">Facebook</button>
             </ion-col>
         </ion-row>
-        <ion-row text-center>
+        <ion-row class = "margin-top"text-center>
             <ion-col col-12>
                 <button ion-button round class="google-button">Google</button>
             </ion-col>
         </ion-row>
-        <ion-row text-center>
+        <ion-row class = "margin-top"text-center>
             <ion-col col-12>
-                <button ion-button round class="mail-button">Mail</button>
+                <button ion-button round (click)="goToInscriptionMailPage()" class="mail-button">Mail</button>
             </ion-col>
         </ion-row>
     </ion-grid>
