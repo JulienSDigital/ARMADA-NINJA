@@ -12,6 +12,12 @@
             <ion-label>Adresse mail</ion-label>
             <ion-input formControlName="mail" type="mail"></ion-input>
           </ion-item>
+          <ion-item *ngIf="slideFormMail.controls.mail.hasError('wrong format') && slideFormMail.controls.mail.touched">
+            <p>Format d'email incorrect</p>
+          </ion-item>
+          <ion-item *ngIf="slideFormMail.controls.mail.hasError('required') && slideFormMail.controls.mail.touched">
+            <p>Veuillez entrer une adresse mail</p>
+          </ion-item>
           <div class="set-size charts-container">
             <div class="pie-wrapper progress-0">
               <span class="label">0<span class="smaller">%</span></span>
@@ -30,12 +36,17 @@
         <form [formGroup]="slideFormPassword">
           <ion-item>
             <ion-label>Mot de passe</ion-label>
-            <ion-input formControlName="password" type="text"></ion-input>
+            <ion-input formControlName="password" type="password"></ion-input>
           </ion-item>
 
           <ion-item>
             <ion-label>Confirmation</ion-label>
-            <ion-input formControlName="passwordConfirmation" type="text"></ion-input>
+            <ion-input formControlName="passwordConfirmation" type="password"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="(slideFormPassword.controls.passwordConfirmation.hasError('required')
+                            || slideFormPassword.controls.passwordConfirmation.hasError('passwords doesnt match'))
+                            && slideFormPassword.controls.passwordConfirmation.touched">
+            <p>Veuillez confirmer votre mot de passe</p>
           </ion-item>
           <div class="set-size charts-container">
             <div class="pie-wrapper progress-16">
@@ -145,7 +156,7 @@
         <form [formGroup]="slideFormPhoneNumber">
           <ion-item>
             <ion-label>Téléphone</ion-label>
-            <ion-input formControlName="phoneNumber" type="text"></ion-input>
+            <ion-input formControlName="phoneNumber" type="number"></ion-input>
           </ion-item>
           <div class="set-size charts-container">
             <div class="pie-wrapper progress-79">
@@ -168,7 +179,7 @@
           <ion-item>
             <ion-label>Sexe</ion-label>
             <ion-select formControlName="sexe">
-              <ion-option value="male">Homme</ion-option>
+              <ion-option value="male" >Homme</ion-option>
               <ion-option value="female">Femme</ion-option>
               <ion-option value="none">Non défini</ion-option>
             </ion-select>
