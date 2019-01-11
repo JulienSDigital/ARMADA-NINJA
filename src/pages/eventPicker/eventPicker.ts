@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
 
 import { PhotoHandler } from "../photoHandler/photoHandler";
+import { MapPage } from "../map/map";
 
 import { Geolocation } from "@ionic-native/geolocation";
 import { Camera, CameraOptions } from "@ionic-native/camera";
@@ -35,7 +36,8 @@ export class EventPicker {
     public navCtrl: NavController,
     public geolocation: Geolocation,
     public camera: Camera,
-    public storage: Storage
+    public storage: Storage,
+    public mapPage: MapPage
   ) {
     this.header_data = {
       hideBackButton: true,
