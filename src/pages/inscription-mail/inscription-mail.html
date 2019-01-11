@@ -12,6 +12,15 @@
             <ion-label>Adresse mail</ion-label>
             <ion-input formControlName="mail" type="mail"></ion-input>
           </ion-item>
+          <div class="set-size charts-container">
+            <div class="pie-wrapper progress-0">
+              <span class="label">0<span class="smaller">%</span></span>
+              <div class="pie">
+                <div class="left-side half-circle"></div>
+                <div class="right-side half-circle"></div>
+              </div>
+            </div>
+          </div>
         </form>
       </ion-list>
     </ion-slide>
@@ -28,6 +37,15 @@
             <ion-label>Confirmation</ion-label>
             <ion-input formControlName="passwordConfirmation" type="text"></ion-input>
           </ion-item>
+          <div class="set-size charts-container">
+            <div class="pie-wrapper progress-16">
+              <span class="label">16<span class="smaller">%</span></span>
+              <div class="pie">
+                <div class="left-side half-circle"></div>
+                <div class="right-side half-circle"></div>
+              </div>
+            </div>
+          </div>
 
         </form>
       </ion-list>
@@ -35,17 +53,30 @@
 
     <ion-slide>
       <ion-list>
+
         <form [formGroup]="slideFormPrenom">
           <ion-item>
+
             <ion-label>Prénom</ion-label>
             <ion-input formControlName="prenom" type="text"></ion-input>
           </ion-item>
-          <ion-item *ngIf="slideFormPrenom.controls.prenom.hasError('maxlength') && slideFormPrenom.controls.prenom.touched">
+          <ion-item
+            *ngIf="slideFormPrenom.controls.prenom.hasError('maxlength') && slideFormPrenom.controls.prenom.touched">
             <p>30 caractères maximum</p>
           </ion-item>
-          <ion-item *ngIf="slideFormPrenom.controls.prenom.hasError('required') && slideFormPrenom.controls.prenom.touched">
+          <ion-item
+            *ngIf="slideFormPrenom.controls.prenom.hasError('required') && slideFormPrenom.controls.prenom.touched">
             <p>Prénom requis</p>
           </ion-item>
+          <div class="set-size charts-container">
+            <div class="pie-wrapper progress-30">
+              <span class="label">30<span class="smaller">%</span></span>
+              <div class="pie">
+                <div class="left-side half-circle"></div>
+                <div class="right-side half-circle"></div>
+              </div>
+            </div>
+          </div>
         </form>
       </ion-list>
     </ion-slide>
@@ -63,6 +94,15 @@
           <ion-item *ngIf="slideFormNom.controls.nom.hasError('required') && slideFormNom.controls.nom.touched">
             <p>Nom requis</p>
           </ion-item>
+          <div class="set-size charts-container">
+            <div class="pie-wrapper progress-47">
+              <span class="label">47<span class="smaller">%</span></span>
+              <div class="pie">
+                <div class="left-side half-circle"></div>
+                <div class="right-side half-circle"></div>
+              </div>
+            </div>
+          </div>
         </form>
       </ion-list>
     </ion-slide>
@@ -83,9 +123,19 @@
           <ion-item *ngIf="slideFormAge.controls.age.hasError('not a number') && slideFormAge.controls.age.touched">
             <p>La valeur entrée n'est pas un âge</p>
           </ion-item>
-          <ion-item *ngIf="slideFormAge.controls.age.hasError('not a whole number') && slideFormAge.controls.age.touched">
+          <ion-item
+            *ngIf="slideFormAge.controls.age.hasError('not a whole number') && slideFormAge.controls.age.touched">
             <p>L'âge entré n'est pas un nombre entier</p>
           </ion-item>
+          <div class="set-size charts-container">
+            <div class="pie-wrapper progress-63">
+              <span class="label">63<span class="smaller">%</span></span>
+              <div class="pie">
+                <div class="left-side half-circle"></div>
+                <div class="right-side half-circle"></div>
+              </div>
+            </div>
+          </div>
         </form>
       </ion-list>
     </ion-slide>
@@ -97,26 +147,46 @@
             <ion-label>Téléphone</ion-label>
             <ion-input formControlName="phoneNumber" type="text"></ion-input>
           </ion-item>
+          <div class="set-size charts-container">
+            <div class="pie-wrapper progress-79">
+              <span class="label">79<span class="smaller">%</span></span>
+              <div class="pie">
+                <div class="left-side half-circle"></div>
+                <div class="right-side half-circle"></div>
+              </div>
+            </div>
+          </div>
         </form>
       </ion-list>
     </ion-slide>
 
     <ion-slide>
+
       <ion-list>
+
         <form [formGroup]="slideFormSexe">
           <ion-item>
             <ion-label>Sexe</ion-label>
             <ion-select formControlName="sexe">
-              <ion-option value="male" >Homme</ion-option>
+              <ion-option value="male">Homme</ion-option>
               <ion-option value="female">Femme</ion-option>
               <ion-option value="none">Non défini</ion-option>
             </ion-select>
           </ion-item>
+
         </form>
       </ion-list>
       <button ion-button full color="primary" (click)="save()">Créer mon compte</button>
     </ion-slide>
-
+    <div class="set-size charts-container">
+      <div class="pie-wrapper progress-100">
+        <span class="label">100<span class="smaller">%</span></span>
+        <div class="pie">
+          <div class="left-side half-circle"></div>
+          <div class="right-side half-circle"></div>
+        </div>
+      </div>
+    </div>
   </ion-slides>
 
 </ion-content>
@@ -124,10 +194,15 @@
 <ion-footer>
   <ion-navbar transparent>
     <ion-buttons icon-start>
-      <button ion-button icon-left (click)="prev()"><ion-icon name="arrow-back"></ion-icon> Prev</button>
+      <button ion-button icon-left (click)="prev()">
+        <ion-icon name="arrow-back"></ion-icon>
+        Prev
+      </button>
     </ion-buttons>
     <ion-buttons end>
-      <button ion-button icon-right (click)="next()">Next <ion-icon name="arrow-forward"></ion-icon></button>
+      <button ion-button icon-right (click)="next()">Next
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
     </ion-buttons>
   </ion-navbar>
 </ion-footer>
