@@ -29,13 +29,21 @@ export class EventPicker {
   };
   recordingButtonColor: string = "danger";
   FREQUENCY = 1000;
+  header_data: any;
 
   constructor(
     public navCtrl: NavController,
     public geolocation: Geolocation,
     public camera: Camera,
     public storage: Storage
-  ) {}
+  ) {
+    this.header_data = {
+      hideBackButton: true,
+      withProfile: true,
+      withTranslate: false,
+      title: "Event"
+    };
+  }
 
   beginRecord() {
     this.storage.get("recording").then((rec) => {
