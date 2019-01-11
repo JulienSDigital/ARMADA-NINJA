@@ -1,8 +1,9 @@
 <ion-header>
-  <custom-header [header]="header_data"></custom-header>
+	<custom-header [header]="header_data"></custom-header>
 </ion-header>
 
 
 <ion-content padding>
-
+	<button ion-button menuToggle="right">Filtres</button>
+	<button ion-button (click)="goToAccordion()">Accordion</button>
 </ion-content>
