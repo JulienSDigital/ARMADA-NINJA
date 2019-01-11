@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { HomePage } from '../home/home';
 import { EventPicker } from "../eventPicker/eventPicker"
 import { listSportPage } from "../listSport/listSport";
-import {MapPage} from "../map/map";
-import { KitchenSinkPage } from "../kitchen-sink/kitchen-sink";
+import { MapPage } from "../map/map";
+import { HomeChatPage } from "../home-chat/home-chat";
 
 
 @Component({
@@ -12,10 +12,10 @@ import { KitchenSinkPage } from "../kitchen-sink/kitchen-sink";
 export class TabsPage {
 
   tab1Root = HomePage;
-  tab4Root = EventPicker;
-  tab5Root = listSportPage;
-  tab6Root = MapPage;
-  tab7Root = KitchenSinkPage;
+  tab2Root = EventPicker;
+  tab3Root = listSportPage;
+  tab4Root = MapPage;
+  tab5Root = HomeChatPage;
 
   constructor() {}
 }
