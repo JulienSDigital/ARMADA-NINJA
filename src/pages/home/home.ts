@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Inscription } from '../inscription/inscription';
 import { ConnexionPage } from '../connexion/connexion';
+import { HomeChatPage } from "../home-chat/home-chat";
 
 @Component({
 	selector: 'page-home',
@@ -20,6 +21,11 @@ export class HomePage {
   goToConnexionPage(){
     this.navCtrl.push(ConnexionPage)
   }
+
+   go2Chat(){
+        this.navCtrl.push(HomeChatPage)
+    }
+
   changebackground() {
     setTimeout( () => {
       this.className = 'another-class';
