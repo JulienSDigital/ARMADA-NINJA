@@ -6,14 +6,11 @@
 
 <ion-content padding>
     <div>
-        <div>
-            <button (click)="goToSki()">Aller sur la page de ski</button>
-        </div>
-        <div>
-            <button (click)="goToSurf()">Aller sur la page surf</button>
-        </div>
-        <div>
-            <button (click)="goToRando()">Aller sur la page rando</button>
-        </div>
+
+        <ion-list>
+            <button class="image_cat" (click)="requestCategorie(cat)" ion-button full *ngFor="let c of categorieslist">
+                <span>{{c}}</span>
+        </button>
+        </ion-list>
     </div>
 </ion-content>
