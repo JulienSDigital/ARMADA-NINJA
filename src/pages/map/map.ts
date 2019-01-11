@@ -1,12 +1,7 @@
-import {Component, ElementRef, ViewChild} from "@angular/core";
-import {NavController, AlertController} from "ionic-angular";
-import leaflet from "leaflet";
-import {
-  NativeGeocoder,
-  NativeGeocoderForwardResult
-} from "@ionic-native/native-geocoder";
+import { Component } from '@angular/core';
+import { NavController, Platform } from 'ionic-angular';
+import { GoogleMaps, GoogleMap, GoogleMapsEvent, LatLng, CameraPosition, MarkerOptions, Marker } from '@ionic-native/google-maps';
 
-import {MarkersProvider} from "../../providers/markers/markers";
 
 
 @Component({
@@ -14,92 +9,51 @@ import {MarkersProvider} from "../../providers/markers/markers";
   templateUrl: 'map.html'
 })
 export class MapPage {
-  @ViewChild("map") mapContainer: ElementRef;
-  map: any;
+  constructor(public navCtrl: NavController, private googleMaps: GoogleMaps, public platform: Platform) {
 
-  constructor(
-    public navCtrl: NavController,
-    private alertCtrl: AlertController,
-    private nativeGeocoder: NativeGeocoder,
-    public markersProvier: MarkersProvider
-  ) {  }
-  ionViewDidEnter() {
-    this.loadmap();
   }
-  loadmap() {
-    this.map = leaflet.map("map").fitWorld();
-    leaflet
-      .tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attributions: "armada navigation",
-        maxZoom: 50
-      })
-      .addTo(this.map);
-    this.loadMarkers();
+  ionViewDidLoad() {
+    this.loadMap();
   }
+  loadMap() {
+    // create a new map by passing HTMLElement
+    let element: HTMLElement = document.getElementById('map');
 
-  addMarker() {
-    let prompt = this.alertCtrl.create({
-      title: "Add Marker",
-      message: "Enter location",
-      inputs: [
-        {
-          name: "city",
-          placeholder: "City"
-        }
-      ],
-      buttons: [
-        {
-          text: "Cancel",
-          handler: data => {
-            console.log("Cancel clicked");
-          }
-        },
-        {
-          text: "Save",
-          handler: data => {
-            // this.geoCodeandAdd(data.city);
-          }
-        }
-      ]
-    });
-    prompt.present();
-  }
+    let map: GoogleMap = this.googleMaps.create(element);
 
-  geoCodeandAdd(city) {
-    this.nativeGeocoder
-      .forwardGeocode(city)
-      .then((coordinates: NativeGeocoderForwardResult) => {
-        this.markersProvier.saveMarker(coordinates[0]);
-      })
-      .catch((error: any) => console.log(error));
-  }
+    // listen to MAP_READY event
+    // You must wait for this event to fire before adding something to the map or modifying it in anyway
+    map.one(GoogleMapsEvent.MAP_READY).then(
+      () => {
+        console.log('Map is ready!');
+        // Now you can add elements to the map like the marker
+      }
+    );
 
-  loadMarkers() {
-    var greenIcon = new leaflet.Icon({
-      iconUrl:
-        "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
-      shadowUrl:
-        "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
-      iconSize: [25, 41],
-      iconAnchor: [12, 41],
-      popupAnchor: [1, -34],
-      shadowSize: [41, 41]
-    });
+    // create LatLng object
+    let ionic: LatLng = new LatLng(43.0741904,-89.3809802);
 
-    this.markersProvier.getAllMarkers().subscribe((markers: any) => {
-      markers.forEach(singlemarker => {
-        let markerGroup = leaflet.featureGroup();
+    // create CameraPosition
+    // @ts-ignore
+    let position: CameraPosition = {
+      target: ionic,
+      zoom: 18,
+      tilt: 30
+    };
 
-        let marker: any = leaflet
-          .marker([singlemarker.latitude, singlemarker.longitude], {
-            icon: greenIcon
-          })
-          .on("click", () => {
-            alert(singlemarker.message);
-          });
-        markerGroup.addLayer(marker);
-        this.map.addLayer(markerGroup);
+    // move the map's camera to position
+    map.moveCamera(position);
+
+    // create new marker
+    let markerOptions: MarkerOptions = {
+      position: ionic,
+      title: 'Ionic'
+    };
+
+    map.addMarker(markerOptions)
+      .then((marker: Marker) => {
+        marker.showInfoWindow();
       });
-    });
   }
+
 }
