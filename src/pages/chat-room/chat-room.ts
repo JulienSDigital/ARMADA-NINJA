@@ -11,8 +11,16 @@ export class ChatRoomPage {
   messages = [];
   nickname = '';
   message = '';
+  header_data: any; // Déclaration options du custom-header
 
   constructor(private navCtrl: NavController, private navParams: NavParams, private socket: Socket, private toastCtrl: ToastController) {
+    this.header_data = {
+      hideBackButton: false,
+      withProfile: true,
+      withTranslate: false,
+      title: "Chat"
+    };
+
     this.nickname = this.navParams.get('nickname');
 
     this.getMessages().subscribe(message => {

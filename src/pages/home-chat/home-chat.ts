@@ -9,8 +9,16 @@ import { ChatRoomPage } from '../chat-room/chat-room';
 })
 export class HomeChatPage {
   nickname = '';
+  header_data: any; // Déclaration options du custom-header
 
-  constructor(public navCtrl: NavController, private socket: Socket) { }
+  constructor(public navCtrl: NavController, private socket: Socket) {
+    this.header_data = {
+      hideBackButton: false,
+      withProfile: true,
+      withTranslate: false,
+      title: "Rejoindre le chat"
+    };
+  }
 
   joinChat() {
     this.socket.connect();
