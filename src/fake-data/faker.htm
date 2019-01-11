@@ -1,0 +1,30 @@
+<script src = "faker.js" type = "text/javascript"></script>
+<script>
+    function getRandomInt(max) {
+        return 1 + Math.floor(Math.random() * Math.floor(max - 1));
+    }
+
+    const maxPoints = 20;
+
+    var points = [];
+    for (var i = 0; i < getRandomInt(maxPoints); ++i) {
+        points.push({
+            'long': faker.address.longitude(),
+            'lat': faker.address.latitude(),
+        });
+    }
+
+    var fakeUser = {
+        'firstName': faker.name.firstName(),
+        'lastName': faker.name.lastName(),
+        'email': faker.internet.email(),
+        'city': faker.address.city(),
+        'points': points
+    }
+
+    console.log(fakeUser);
+
+    // Ici retourner le fakeUser dans la function appropriée :)
+
+</script>
+
