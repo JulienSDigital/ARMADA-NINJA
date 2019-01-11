@@ -28,7 +28,7 @@ export class MyApp {
     });
     storage.clear();
     storage.set("recordTimer", null);
-    storage.set("currentRide", []);
+    storage.set("currentTrace", []);
     storage.set("recording", false);
   }
 }

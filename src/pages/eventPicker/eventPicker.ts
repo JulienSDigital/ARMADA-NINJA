@@ -39,7 +39,6 @@ export class EventPicker {
 
   beginRecord() {
     this.storage.get("recording").then((rec) => {
-      console.log(rec);
       if (!rec) {
         const recordTimer = setInterval(() => {
           this.geolocation
@@ -51,8 +50,11 @@ export class EventPicker {
                 altitude: resp.coords.altitude,
                 time: new Date()
               };
-              this.storage.get("currentRide").then((currentRide) => {
-                this.storage.set("currentRide", currentRide.push(coordonnee));
+              this.storage.get("currentTrace").then((currentTrace) => {
+                const newTrace = currentTrace as Array<Coordonnees>;
+                newTrace.push(coordonnee);
+                this.storage.set("currentTrace", newTrace);
+                // console.log(coordonnee);
               });
             })
             .catch((error) => {
@@ -63,9 +65,8 @@ export class EventPicker {
         this.recordingButtonColor = "red";
         this.storage.set("recordTimer", recordTimer);
       } else {
-        this.storage.get("currentRide").then((currentRide) => {
-          //   this.storage.set("currentRide", currentRide.push(coordonnee));
-          console.log(currentRide);
+        this.storage.get("currentTrace").then((currentTrace) => {
+          console.log(currentTrace);
         });
         this.storage.set("recording", false);
         this.recordingButtonColor = "green";
@@ -79,25 +80,15 @@ export class EventPicker {
   makeInterestPoint() {
     this.camera.getPicture(this.options).then(
       (imageData) => {
-        // imageData is either a base64 encoded string or a file URI
-        // If it's base64 (DATA_URL):
+        /**
+         * imageData is either a base64 encoded string or a file URI
+         * If it's base64 (DATA_URL):
+         */
         // let base64Image = "data:image/jpeg;base64," + imageData;
         this.event.type = "interestPoint";
         this.event.img = imageData;
         this.navCtrl.push(PhotoHandler, { data: this.event });
-        // this.geolocation
-        //   .getCurrentPosition()
-        //   .then((resp) => {
-        //     // resp.coords.latitude
-        //     // resp.coords.longitude
         this.navCtrl.push(PhotoHandler);
-
-        //     // TODO : add description
-        //     // TODO: send to server side
-        //   })
-        //   .catch((error) => {
-        //     console.log("Error getting location", error);
-        //   });
       },
       (err) => {
         console.log("error happened from camera");
