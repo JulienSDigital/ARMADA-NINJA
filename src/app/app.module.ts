@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { IonicApp, IonicModule, IonicErrorHandler } from "ionic-angular";
+import {IonicApp, IonicModule, IonicErrorHandler, IonicPageModule} from "ionic-angular";
 import { MyApp } from "./app.component";
 
 import { ContactPage } from "../pages/contact/contact";
@@ -27,6 +27,13 @@ import { GoogleMaps } from "@ionic-native/google-maps";
 import { KitchenSinkPage } from "../pages/kitchen-sink/kitchen-sink";
 import { IonicStorageModule } from "@ionic/storage";
 
+import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
+import {ChatRoomPage} from "../pages/chat-room/chat-room";
+//import {ChatRoomPageModule} from "../pages/chat-room/chat-room.module";
+import {HomeChatPage} from "../pages/home-chat/home-chat";
+//import {HomeChatPageModule} from "../pages/home-chat/home-chat.module";
+const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
+
 @NgModule({
   declarations: [
     MyApp,
@@ -43,12 +50,17 @@ import { IonicStorageModule } from "@ionic/storage";
     Inscription,
     MapPage,
     ConnexionPage,
-    KitchenSinkPage
+    KitchenSinkPage,
+    ChatRoomPage,
+    HomeChatPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    SocketIoModule.forRoot(config),
+    IonicPageModule.forChild(HomeChatPage),
+    IonicPageModule.forChild(ChatRoomPage)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -66,7 +78,9 @@ import { IonicStorageModule } from "@ionic/storage";
     Inscription,
     MapPage,
     ConnexionPage,
-    KitchenSinkPage
+    KitchenSinkPage,
+    ChatRoomPage,
+    HomeChatPage
   ],
   providers: [
     StatusBar,
