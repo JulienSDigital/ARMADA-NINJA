@@ -30,6 +30,7 @@ import { KitchenSinkPage } from "../pages/kitchen-sink/kitchen-sink";
 import { IonicStorageModule } from "@ionic/storage";
 import { globalServices } from "../pages/services/globalServices";
 import { confidentialityPage } from "../pages/confidentiality/confidentiality";
+import { FriendListPage } from "../pages/friend-list/friend-list";
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { confidentialityPage } from "../pages/confidentiality/confidentiality";
     ConnexionPage,
     KitchenSinkPage,
     confidentialityPage,
-    ConnexionMailPage
+    ConnexionMailPage,
+    FriendListPage
   ],
   imports: [
     BrowserModule,
@@ -76,7 +78,8 @@ import { confidentialityPage } from "../pages/confidentiality/confidentiality";
     ConnexionPage,
     KitchenSinkPage,
     confidentialityPage,
-    ConnexionMailPage
+    ConnexionMailPage,
+    FriendListPage
   ],
   providers: [
     StatusBar,

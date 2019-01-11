@@ -2,7 +2,7 @@
     <ion-grid>
         <ion-row class="row">
             <ion-col>
-                <img width="40" [src]="imgSrc" (click)="toggleMenu()"/>
+                <img width="40" src="../../assets/imgs/logo-header.png" (click)="toggleMenu()"/>
             </ion-col>
             <ion-col col-8>
                 <ion-title text-center class="header-title">
@@ -10,15 +10,11 @@
                 </ion-title>
             </ion-col>
             <ion-col>
-                <ion-fab *ngIf="header_data.withTranslate" center middle>
-                    <button ion-fab color="red"><ion-icon name="flag"></ion-icon></button>
-                    <ion-fab-list side="left">
-                        <button ion-fab (click)="chooseLanguage('fr')" color="primary">Fr</button>
-                        <button ion-fab (click)="chooseLanguage('en')" color="danger">En</button>
-                    </ion-fab-list>
-                </ion-fab>
-                <button *ngIf="header_data.withProfile" ion-button icon-only (click)="goProfil()">
-                    <ion-icon name="contact"></ion-icon>
+                <button *ngIf="header_data.withTranslate" ion-fab (click)="presentActionSheet()" color="secondary">
+                   <ion-icon name="flag"></ion-icon>
+                </button>
+                <button *ngIf="header_data.withProfile" ion-fab icon-only (click)="goProfil()" color="secondary">
+                    <ion-icon name="person"></ion-icon>
                 </button>
             </ion-col>
         </ion-row>

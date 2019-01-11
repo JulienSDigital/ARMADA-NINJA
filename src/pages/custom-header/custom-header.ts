@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { NavController, MenuController } from 'ionic-angular';
+import { NavController, MenuController, ToastController, ActionSheetController  } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { ContactPage } from '../contact/contact';
 /*
@@ -32,9 +32,19 @@ import { ContactPage } from '../contact/contact';
 })
 export class CustomHeader {
     private header_data: any;
-    private imgSrc: string = "../../assets/imgs/logo-header.png";
+    private actionSheet: any;
+    private langs: Array<Object> = [
+        {pfx: "fr", libelle: "Français"},
+        {pfx: "en", libelle: "Anglais"},
+    ];
 
-    constructor(public navCtrl: NavController, public menuCtrl: MenuController) { }
+    constructor(
+        public navCtrl: NavController,
+        public menuCtrl: MenuController,
+        private toastCtrl: ToastController,
+        private actSheetCtrl: ActionSheetController
+    ) { 
+    }
     
     @Input()
     set header(header_data: any) {
@@ -61,8 +71,43 @@ export class CustomHeader {
         // @params lang: "fr" or "en".
         const langs: Object = {
             fr: "Français",
-            en: "English"
+            en: "Anglais"
         }
-        alert(langs[lang]);
+        this.presentToast(langs[lang]);
+    }
+
+    presentToast(lang: string) {
+        let toast: any = this.toastCtrl.create({
+            message: `Vous avez choisi ${lang}`,
+            duration: 3000,
+            position: 'bottom'
+        });
+      
+        toast.onDidDismiss(() => {
+            console.log('Dismissed toast');
+        });
+      
+        toast.present();
+    }
+
+    presentActionSheet() {
+        this.buildActionSheet();
+        this.actionSheet.present();
+    }
+
+    buildActionSheet() {
+        const buttons = this.langs.map((lang: Object) => {
+            return {
+                text: lang["libelle"],
+                role: lang["pfx"],
+                handler: () => {
+                    this.presentToast(lang["libelle"]);
+                }
+            };
+        });
+        this.actionSheet = this.actSheetCtrl.create({
+            title: 'Choisissez votre langue',
+            buttons: buttons
+        });
     }
 }
