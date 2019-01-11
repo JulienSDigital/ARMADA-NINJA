@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, IonicPage, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { Socket } from 'ng-socket-io';
 import { Observable } from 'rxjs/Observable';
 
-@IonicPage()
 @Component({
   selector: 'page-chat-room',
   templateUrl: 'chat-room.html',

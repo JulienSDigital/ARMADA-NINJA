@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Socket } from 'ng-socket-io';
+import { ChatRoomPage } from '../chat-room/chat-room';
 
 @Component({
   selector: 'page-home(chat',
@@ -14,6 +15,7 @@ export class HomeChatPage {
   joinChat() {
     this.socket.connect();
     this.socket.emit('set-nickname', this.nickname);
-    this.navCtrl.push('ChatRoomPage', { nickname: this.nickname });
+    console.log({ nickname: this.nickname });
+    this.navCtrl.push(ChatRoomPage, { nickname: this.nickname });
   }
 }

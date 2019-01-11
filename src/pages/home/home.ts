@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Inscription } from '../inscription/inscription';
 import { ConnexionPage } from '../connexion/connexion';
-import {HomeChatPage} from "../home-chat/home-chat";
-import {HomeChatPageModule} from "../home-chat/home-chat.module";
+import { HomeChatPage } from "../home-chat/home-chat";
 
 @Component({
 	selector: 'page-home',

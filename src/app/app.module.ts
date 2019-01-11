@@ -28,10 +28,8 @@ import { KitchenSinkPage } from "../pages/kitchen-sink/kitchen-sink";
 import { IonicStorageModule } from "@ionic/storage";
 
 import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
-import {ChatRoomPage} from "../pages/chat-room/chat-room";
-//import {ChatRoomPageModule} from "../pages/chat-room/chat-room.module";
-import {HomeChatPage} from "../pages/home-chat/home-chat";
-//import {HomeChatPageModule} from "../pages/home-chat/home-chat.module";
+import { ChatRoomPage } from "../pages/chat-room/chat-room";
+import { HomeChatPage } from "../pages/home-chat/home-chat";
 const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
 
 @NgModule({
