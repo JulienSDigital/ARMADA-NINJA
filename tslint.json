@@ -1,4 +1,9 @@
 {
+
+  "paths": {
+    "@angular/*": ["node_modules/@angular/*"]
+  },
+
   "rules": {
     "no-duplicate-variable": true,
     "no-unused-variable": [
