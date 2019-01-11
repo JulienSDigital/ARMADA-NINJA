@@ -25,7 +25,7 @@ import { listSportPage } from "../pages/listSport/listSport";
 import { surfPage } from "../pages/surf/surf";
 import { skiPage } from "../pages/Ski/ski";
 import { randoPage } from "../pages/rando/rando";
-import { GoogleMaps } from "@ionic-native/google-maps";
+import {CameraPosition, GoogleMaps, MarkerOptions} from "@ionic-native/google-maps";
 import { KitchenSinkPage } from "../pages/kitchen-sink/kitchen-sink";
 import { IonicStorageModule } from "@ionic/storage";
 import { globalServices } from "../pages/services/globalServices";
