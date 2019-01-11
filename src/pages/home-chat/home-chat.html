@@ -2,7 +2,7 @@
   <custom-header [header]="header_data"></custom-header>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding (keyup.enter)="joinChat()">
   <ion-item>
     <ion-label stacked>Entrez un pseudo</ion-label>
     <ion-input type="text" [(ngModel)]="nickname" placeholder="Pseudo"></ion-input>
