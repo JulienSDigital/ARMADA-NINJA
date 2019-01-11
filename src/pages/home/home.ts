@@ -20,6 +20,7 @@ export class HomePage {
   goToConnexionPage(){
     this.navCtrl.push(ConnexionPage)
   }
+
   changebackground() {
     setTimeout( () => {
       this.className = 'another-class';

@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { IonicApp, IonicModule, IonicErrorHandler } from "ionic-angular";
+import {IonicApp, IonicModule, IonicErrorHandler, IonicPageModule} from "ionic-angular";
 import { MyApp } from "./app.component";
 
 import { ContactPage } from "../pages/contact/contact";
@@ -25,11 +25,16 @@ import { listSportPage } from "../pages/listSport/listSport";
 import { surfPage } from "../pages/surf/surf";
 import { skiPage } from "../pages/Ski/ski";
 import { randoPage } from "../pages/rando/rando";
-import {CameraPosition, GoogleMaps, MarkerOptions} from "@ionic-native/google-maps";
+import { CameraPosition, GoogleMaps, MarkerOptions } from "@ionic-native/google-maps";
 import { KitchenSinkPage } from "../pages/kitchen-sink/kitchen-sink";
 import { IonicStorageModule } from "@ionic/storage";
 import { globalServices } from "../pages/services/globalServices";
 import { confidentialityPage } from "../pages/confidentiality/confidentiality";
+
+import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
+import { ChatRoomPage } from "../pages/chat-room/chat-room";
+import { HomeChatPage } from "../pages/home-chat/home-chat";
+const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
 
 @NgModule({
   declarations: [
@@ -50,12 +55,17 @@ import { confidentialityPage } from "../pages/confidentiality/confidentiality";
     ConnexionPage,
     KitchenSinkPage,
     confidentialityPage,
-    ConnexionMailPage
+    ConnexionMailPage,
+    ChatRoomPage,
+    HomeChatPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    SocketIoModule.forRoot(config),
+    IonicPageModule.forChild(HomeChatPage),
+    IonicPageModule.forChild(ChatRoomPage)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -76,7 +86,9 @@ import { confidentialityPage } from "../pages/confidentiality/confidentiality";
     ConnexionPage,
     KitchenSinkPage,
     confidentialityPage,
-    ConnexionMailPage
+    ConnexionMailPage,
+    ChatRoomPage,
+    HomeChatPage
   ],
   providers: [
     StatusBar,
